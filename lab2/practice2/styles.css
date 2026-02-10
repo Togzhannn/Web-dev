@@ -1,0 +1,34 @@
+:root {
+    --linkedin-blue: #0A66C2;
+    --linkedin-blue-hover: #004182;
+    --linkedin-light: #EEF3F8;
+    --bg-white: #FFFFFF;
+    --text-dark: #191919;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #E0E0E0;
+    --success-green: #057642;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+header{
+    background-color:var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{ font-weight:bold; font-size:1.5rem; color:var(--text-dark);
+}
+.logo-box{
+    background: var(--linkedin-blue);
+    color: white;
+    padding: 0 4px;
+    border-radius: 4px;
+    margin-left: 2px;
+}
