@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let now = new Date();
+    alert( now ); // shows current date/time
+
+    // 0 means 01.01.1970 UTC+0
+    let Jan01_1970 = new Date(0);
+    alert( Jan01_1970 );
+
+    // now add 24 hours, get 02.01.1970 UTC+0
+    let Jan02_1970 = new Date(24 * 3600 * 1000);
+    alert( Jan02_1970 );
+
+    let date = new Date("2017-01-26");
+    alert(date);
+    // The time is not set, so it's assumed to be midnight GMT and
+    // is adjusted according to the timezone the code is run in
+    // So the result could be
+    // Thu Jan 26 2017 11:00:00 GMT+1100 (Australian Eastern Daylight Time)
+    // or
+    // Wed Jan 25 2017 16:00:00 GMT-0800 (Pacific Standard Time)
+
+    // current date
+    let date = new Date();
+
+    // the hour in your current time zone
+    alert( date.getHours() );
+
+    // the hour in UTC+0 time zone (London time without daylight savings)
+    alert( date.getUTCHours() );
+
+    let today = new Date();
+
+    today.setHours(0);
+    alert(today); // still today, but the hour is changed to 0
+
+    today.setHours(0, 0, 0, 0);
+    alert(today); // still today, now 00:00:00 sharp.
+
+    let date = new Date(2016, 0, 2); // 2 Jan 2016
+
+    date.setDate(1); // set day 1 of month
+    alert( date );
+
+    date.setDate(0); // min day is 1, so the last day of the previous month is assumed
+    alert( date ); // 31 Dec 2015
+
+    let start = new Date(); // start measuring time
+
+    // do the job
+    for (let i = 0; i < 100000; i++) {
+        let doSomething = i * i * i;
+    }
+
+    let end = new Date(); // end measuring time
+
+    alert( `The loop took ${end - start} ms` );
+
+    // we have date1 and date2, which function faster returns their difference in ms?
+    function diffSubtract(date1, date2) {
+        return date2 - date1;
+    }
+
+    // or
+    function diffGetTime(date1, date2) {
+        return date2.getTime() - date1.getTime();
+    }
+
+    function diffSubtract(date1, date2) {
+        return date2 - date1;
+    }
+
+    function diffGetTime(date1, date2) {
+        return date2.getTime() - date1.getTime();
+    }
+
+    function bench(f) {
+        let date1 = new Date(0);
+        let date2 = new Date();
+
+        let start = Date.now();
+        for (let i = 0; i < 100000; i++) f(date1, date2);
+        return Date.now() - start;
+    }
+
+    alert( 'Time of diffSubtract: ' + bench(diffSubtract) + 'ms' );
+    alert( 'Time of diffGetTime: ' + bench(diffGetTime) + 'ms' );
+
+    let date = new Date( Date.parse('2012-01-26T13:51:50.417-07:00') );
+
+    alert(date);
+
+
+    //new Date(datastring)
+    let d2 = new Date("2012-02-20T03:12");
+    alert( d2 );
+
+    function getWeekDay(date) {
+        let days = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+
+        return days[date.getDay()];
+    }
+
+    let date = new Date(2014, 0, 3); // 3 Jan 2014
+    alert( getWeekDay(date) ); // FR
+
+    function getLocalDay(date) {
+
+        let day = date.getDay();
+
+        if (day == 0) { // weekday 0 (sunday) is 7 in european
+            day = 7;
+        }
+
+        return day;
+    }
+
+    function getDateAgo(date, days) {
+        let dateCopy = new Date(date);
+
+        dateCopy.setDate(date.getDate() - days);
+        return dateCopy.getDate();
+    }
+
+    let date = new Date(2015, 0, 2);
+
+    alert( getDateAgo(date, 1) ); // 1, (1 Jan 2015)
+    alert( getDateAgo(date, 2) ); // 31, (31 Dec 2014)
+    alert( getDateAgo(date, 365) ); // 2, (2 Jan 2014)
+
+    function getLastDayOfMonth(year, month) {
+        let date = new Date(year, month + 1, 0);
+        return date.getDate();
+    }
+
+    alert( getLastDayOfMonth(2012, 0) ); // 31
+    alert( getLastDayOfMonth(2012, 1) ); // 29
+    alert( getLastDayOfMonth(2013, 1) ); // 28
+
+    function getSecondsToday() {
+        let now = new Date();
+
+        // create an object using the current day/month/year
+        let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        let diff = now - today; // ms difference
+        return Math.round(diff / 1000); // make seconds
+    }
+
+    alert( getSecondsToday() );
+
+    function getSecondsToTomorrow() {
+        let now = new Date();
+
+        // tomorrow date
+        let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1);
+
+        let diff = tomorrow - now; // difference in ms
+        return Math.round(diff / 1000); // convert to seconds
+    }
+
+    function formatDate(date) {
+        let dayOfMonth = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let hour = date.getHours();
+        let minutes = date.getMinutes();
+        let diffMs = new Date() - date;
+        let diffSec = Math.round(diffMs / 1000);
+        let diffMin = diffSec / 60;
+        let diffHour = diffMin / 60;
+
+        // formatting
+        year = year.toString().slice(-2);
+        month = month < 10 ? '0' + month : month;
+        dayOfMonth = dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth;
+        hour = hour < 10 ? '0' + hour : hour;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+
+        if (diffSec < 1) {
+            return 'right now';
+        } else if (diffMin < 1) {
+            return `${diffSec} sec. ago`
+        } else if (diffHour < 1) {
+            return `${diffMin} min. ago`
+        } else {
+            return `${dayOfMonth}.${month}.${year} ${hour}:${minutes}`
+        }
+    }
+
+</script>
+</body>
+</html>

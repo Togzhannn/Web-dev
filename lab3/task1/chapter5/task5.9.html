@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let user = {
+        name: "John",
+        age: 30
+    };
+
+    // loop over values
+    for (let value of Object.values(user)) {
+        alert(value); // John, then 30
+    }
+
+    let prices = {
+        banana: 1,
+        orange: 2,
+        meat: 4,
+    };
+
+    let doublePrices = Object.fromEntries(
+        // convert prices to array, map each key/value pair into another pair
+        // and then fromEntries gives back the object
+        Object.entries(prices).map(entry => [entry[0], entry[1] * 2])
+    );
+
+    alert(doublePrices.meat); // 8
+
+    let user = {
+        name: "John",
+        years: 30
+    };
+
+    let {name, years: age, isAdmin = false} = user;
+
+    alert( name ); // John
+    alert( age ); // 30
+    alert( isAdmin ); // false
+
+    function topSalary(salaries) {
+
+        let maxSalary = 0;
+        let maxName = null;
+
+        for(const [name, salary] of Object.entries(salaries)) {
+            if (maxSalary < salary) {
+                maxSalary = salary;
+                maxName = name;
+            }
+        }
+
+        return maxName;
+    }
+
+
+</script>
+</body>
+</html>

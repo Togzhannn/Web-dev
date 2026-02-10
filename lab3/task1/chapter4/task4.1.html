@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let user = new Object();
+    let user = {};
+
+    let u = {
+        name : 'John',
+        age : 20
+    };
+
+    alert(u.age)
+    alert(u.name)
+
+    user.isAdmin = true;
+    delete u.age;
+
+    let us = {
+        name : "John",
+        age : 20,
+        'likes birds' : true
+    };
+
+    us["likes birds"] = true;
+
+    alert(us["likes birds"]);
+    delete us["likes birds"];
+
+    let key = "likes birds";
+    user[key] = true;
+
+    function makeUser(name, age) {
+        return {
+            name: name,
+            age: age,
+            // ...other properties
+        };
+    }
+
+    let user1 = makeUser("John", 30);
+    alert(user1.name);
+
+
+    let user2 = {
+        name: "John",
+        age: 30,
+        isAdmin: true
+    };
+
+    for (let key in user2) {
+        // keys
+        alert( key );  // name, age, isAdmin
+        // values for the keys
+        alert( user2[key] ); // John, 30, true
+    }
+
+    let user = {};
+    user.name = "John";
+    user.surname = "Smith";
+    user.name = "Pete";
+    delete user.name;
+
+    function isEmpty(obj) {
+        for (let key in obj) {
+            // if the loop has started, there is a property
+            return false;
+        }
+        return true;
+    }
+
+    let salaries = {
+        John: 100,
+        Ann: 160,
+        Pete: 130
+    };
+
+    let sum = 0;
+    for (let key in salaries) {
+        sum += salaries[key];
+    }
+
+    alert(sum); // 390
+
+    function multiplyNumeric(obj) {
+        for (let key in obj) {
+            if (typeof obj[key] == 'number') {
+                obj[key] *= 2;
+            }
+        }
+    }
+</script>
+</body>
+</html>
