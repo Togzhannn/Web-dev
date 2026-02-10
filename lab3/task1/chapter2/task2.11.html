@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    result = a || b;
+
+    alert(true || true);
+    alert(true || false);
+
+    let hour = 9;
+
+    if (hour < 10 || hour > 18) {
+        alert( 'The office is closed.' );
+    }
+
+    let hour = 12;
+    let isWeekend = true;
+
+    if (hour < 10 || hour > 18 || isWeekend) {
+        alert( 'The office is closed.' ); // it is the weekend
+    }
+
+    result = value1 || value2 || value3;
+
+    let firstName = "";
+    let lastName = "";
+    let nickName = "SuperCoder";
+
+    alert( firstName || lastName || nickName || "Anonymous");
+
+    alert( true && true );
+    alert( false && true );
+    alert( true && false );
+
+    result = !value;
+    alert( !!"non-empty string" ); //
+    alert( !!null );
+
+
+</script>
+</body>
+</html>
