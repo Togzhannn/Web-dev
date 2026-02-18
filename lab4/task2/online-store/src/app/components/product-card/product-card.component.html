@@ -1,0 +1,32 @@
+<div class="product-card">
+  <app-image-gallery [images]="product.images"></app-image-gallery>
+
+  <div class="product-info">
+    <h3 class="product-name">{{ product.name }}</h3>
+    <p class="product-description">{{ product.description }}</p>
+
+    <div class="product-rating">
+      <app-star-rating [rating]="product.rating"></app-star-rating>
+      <span>({{ product.rating }})</span>
+    </div>
+
+    <div class="product-price">
+      {{ product.price | number }} ₸
+    </div>
+
+    <div class="product-actions">
+      <a [href]="product.link" target="_blank" class="btn btn-primary">
+        Посмотреть на Kaspi.kz
+      </a>
+
+      <div class="share-buttons">
+        <a [href]="'https://wa.me/?text=' + product.link" target="_blank" class="share-btn whatsapp">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+        </a>
+        <a [href]="'https://t.me/share/url?url=' + product.link" target="_blank" class="share-btn telegram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="TG">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="gallery-container">
+  <button class="nav-btn prev" (click)="prevImage()" *ngIf="images.length > 1">❮</button>
+
+  <img [src]="images[currentIndex]" class="gallery-img" alt="Product image">
+
+  <button class="nav-btn next" (click)="nextImage()" *ngIf="images.length > 1">❯</button>
+
+  <div class="dots" *ngIf="images.length > 1">
+    <span *ngFor="let img of images; let i = index"
+          [class.active]="i === currentIndex"></span>
+  </div>
+</div>

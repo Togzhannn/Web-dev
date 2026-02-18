@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star-Rating</title>
+</head>
+<body>
+<div class="star-rating">
+  <span *ngFor="let star of stars" class="star" [class.filled]="star.filled">
+    ★
+  </span>
+  <span class="rating-text">({{ rating }})</span>
+</div>
+</body>
+</html>

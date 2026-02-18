@@ -1,0 +1,59 @@
+.gallery-container {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Фиксированная высота для всех карточек */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gallery-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Чтобы картинка не обрезалась и не растягивалась */
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.nav-btn:hover {
+  background: white;
+}
+
+.prev { left: 5px; }
+.next { right: 5px; }
+
+.dots {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.dots span {
+  width: 6px;
+  height: 6px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 50%;
+}
+
+.dots span.active {
+  background: #007bff;
+}
