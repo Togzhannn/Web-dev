@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Kaspi Product Catalog</h1>
+  <div class="product-grid">
+    @for (p of products; track p.id) {
+      <app-product-item [product]="p"></app-product-item>
+    } @empty {
+      <p>No products found.</p>
+    }
+  </div>
+</div>

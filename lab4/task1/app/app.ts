@@ -10,7 +10,7 @@ Task 1
 // //     }
 // //   `,
 // // })
-// // export class App {}
+// // export class AppComponent {}
 //
 //
 
@@ -21,7 +21,7 @@ Task 2
 //     selector: 'app-root',
 //     template: ` Hello {{city}}, {{1+1}}`,
 // })
-// export class App {
+// export class AppComponent {
 //     city = 'San Francisco' ;
 // }
 
@@ -45,7 +45,7 @@ Task 3
 //   `,
 //     imports: [User],
 // })
-// export class App {}
+// export class AppComponent {}
 
 Task 4
 // import {Component} from '@angular/core';
@@ -60,7 +60,7 @@ Task 4
 //   }
 //   `,
 // })
-// export class App {
+// export class AppComponent {
 //     isServerRunning = false;
 // }
 
@@ -75,7 +75,7 @@ Task 5
 //   }
 //   `,
 // })
-// export class App {
+// export class AppComponent {
 //     users = [
 //         {id: 0, name: 'Sarah'},
 //         {id: 1, name: 'Amy'},
@@ -90,12 +90,12 @@ Task 6
 //
 // @Component({
 //     selector: 'app-root',
-//     styleUrls: ['app.css'],
+//     styleUrls: ['app.component.css'],
 //     template: ` <div [contentEditable]="isEditable">
 //
 //   </div> `,
 // })
-// export class App {
+// export class AppComponent {
 //     isEditable = true;
 // }
 
@@ -111,7 +111,7 @@ Task 7
 //     </section>
 //   `,
 // })
-// export class App {
+// export class AppComponent {
 //     message = '';
 //
 //     showSecretMessage() {
@@ -137,7 +137,7 @@ Task 8
 //     template: `<app-user occupation="Simran"></app-user>`,
 //     imports: [User],
 // })
-// export class App {}
+// export class AppComponent {}
 
 Task 9
 //child.ts
@@ -173,7 +173,7 @@ Task 9
 //   `,
 //     imports: [Child],
 // })
-// export class App {
+// export class AppComponent {
 //     items = new Array();
 //
 //     addItem(item: string) {
@@ -246,7 +246,7 @@ Task 10
 //   `,
 //     imports: [Comments],
 // })
-// export class App {}
+// export class AppComponent {}
 
 Task 11
 // import {Routes} from '@angular/router';
@@ -256,7 +256,7 @@ Task 11
 // export const routes: Routes = [
 //   {
 //     path: '',
-//     title: 'App Home Page',
+//     title: 'AppComponent Home Page',
 //     component: Home,
 //   },
 // ];
@@ -276,7 +276,7 @@ Task 11
 //   `,
 //   imports: [RouterLink,RouterOutlet],
 // })
-// export class App {}
+// export class AppComponent {}
 
 
 // import {Component} from '@angular/core';
@@ -348,7 +348,7 @@ Task 11
 //   imports: [ReactiveFormsModule],
 // })
 
-// export class App {
+// export class AppComponent {
 //   profileForm = new FormGroup({
 //     name: new FormControl(''),
 //     email: new FormControl(''),
@@ -376,7 +376,7 @@ Task 11
 //   `,
 //   imports: [ReactiveFormsModule],
 // })
-// export class App {
+// export class AppComponent {
 //   profileForm = new FormGroup({
 //   name: new FormControl('', Validators.required),
 //   email: new FormControl('', [Validators.required, Validators.email]),
@@ -409,7 +409,7 @@ Task 11
 //   selector: 'app-root',
 //   template: `<p>Car Listing: {{ display }}</p>`,
 // })
-// export class App {
+// export class AppComponent {
 //   display = this.carService.getCars().join(' ⭐️ ');
 //   carService = inject(CarService)
 // }
@@ -423,7 +423,7 @@ Task 11
 //   template: `{{ username | lowercase }}`,
 //   imports: [LowerCasePipe],
 // })
-// export class App {
+// export class AppComponent {
 //   username = 'yOunGTECh';
 // }
 
@@ -442,7 +442,7 @@ Task 11
 //   `,
 //   imports: [DecimalPipe, DatePipe, CurrencyPipe],
 // })
-// export class App {
+// export class AppComponent {
 //   num = 103.1234;
 //   birthday = new Date(2023, 3, 2);
 //   cost = 4560.34;
@@ -456,6 +456,6 @@ Task 11
 //   template: `Reverse Machine: {{ word | reverse }}`,
 //   imports: [ReversePipe]
 // })
-// export class App {
+// export class AppComponent {
 //   word = 'You are a champion';
 // }

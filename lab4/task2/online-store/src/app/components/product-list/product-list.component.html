@@ -1,13 +1,29 @@
 <div class="container">
-  <header class="header">
-    <h1>Kaspi.kz Online Store</h1>
-    <p class="product-count">{{ products.length }} товаров</p>
-  </header>
+  <div class="header">
+    <h1>Kaspi Online Store</h1>
+    <span class="favorites-badge">❤ Избранное: {{ favoritesCount() }}</span>
+  </div>
+
+  <div class="view-toggle">
+    <button (click)="showFavoritesOnly.set(false)" [class.active]="!showFavoritesOnly()">Все товары</button>
+    <button (click)="showFavoritesOnly.set(true)" [class.active]="showFavoritesOnly()">Избранное</button>
+  </div>
 
   <div class="product-grid">
-    <app-product-card
-      *ngFor="let product of products"
-      [product]="product">
-    </app-product-card>
+    @for (product of displayedProducts(); track product.id) {
+      <div class="product-wrapper">
+        <app-product-card [product]="product"></app-product-card>
+
+        <button class="fav-btn" (click)="toggleFavorite(product.id)">
+          @if (isFavorite(product.id)) {
+            <span style="color: red;">❤</span>
+          } @else {
+            <span>🤍</span>
+          }
+        </button>
+      </div>
+    } @empty {
+      <p>Ничего не найдено. Добавьте товары в избранное! ✨</p>
+    }
   </div>
 </div>

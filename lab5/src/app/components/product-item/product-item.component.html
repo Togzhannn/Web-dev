@@ -1,0 +1,17 @@
+<div class="card">
+  <button class="del-btn" (click)="remove()">×</button>
+  <img [src]="product.images[currentImgIndex]" referrerpolicy="no-referrer">
+  <h3>{{ product.name }}</h3>
+  <p>{{ product.description }}</p>
+  <div class="rating">⭐ {{ product.rating }}</div>
+  <div class="price">{{ product.price | number }} ₸</div>
+
+  <div class="actions">
+    <button class="like-btn" (click)="like()">❤️ {{ product.likes }}</button>
+    <div class="share-btns">
+      <button (click)="share('wa')">WA</button>
+      <button (click)="share('tg')">TG</button>
+    </div>
+  </div>
+  <a [href]="product.link" target="_blank" class="buy-link">Купить на Kaspi</a>
+</div>

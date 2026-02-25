@@ -1,0 +1,49 @@
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+}
+
+.product-grid:empty::after {
+  content: "Загрузка товаров...";
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #999;
+  padding: 50px;
+}
